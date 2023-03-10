@@ -1,0 +1,47 @@
+:root {
+    --subtitle-color: #909090;
+}
+
+body {
+    background-color: #f2f2f2;
+}
+
+.post {
+    width: 850px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0px 4px 4px #d4d4d4;
+}
+
+.title {
+    font-weight: bold;
+}
+
+.subtitle {
+    margin: 0;
+    color: var(--subtitle-color);
+    font-weight: 400;
+}
+
+.subHeading {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.artists>p {
+    margin: 0;
+}
+
+.attendees>p {
+    margin: 0;
+    font-weight: 400;
+}
+
+.song p {
+    margin: 0;
+}
+
+.gigImage {
+    width: 100%;
+    border-radius: 5px;
+}

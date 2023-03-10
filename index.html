@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ShowShare</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<template id="postTemplate">
+    <div class="post col" id="postTemplate">
+        <div class="row row-cols-1 row-cols-lg-2 p-3">
+            <div class="col">
+                <h3 class="title" id="title"></h3>
+                <h6 class="subtitle"><span id="date"></span> - <span id="venue"></span></h6>
+                <h6 class="subtitle" id="showType"></h6>
+
+                <hr>
+
+                <div class="d-flex justify-content-between">
+
+                    <span class="artists">
+                        <p><i class="fa-solid fa-user"></i> <span id="artistMain" class="subHeading"></span>
+                        </p>
+                    </span>
+
+                    <span class="attendees">
+                    </span>
+
+                </div>
+
+                <hr>
+
+                <span class="topSongs row row-cols-2 g-3" id="songs">
+                    
+                </span>
+            </div>
+
+            <div class="col">
+                <img class="gigImage"
+                    src=""
+                    alt="Gig Pic">
+                <p class="mt-2" id="description"></p>
+            </div>
+
+        </div>
+    </div>
+</template>
+
+<template id="subArtists">
+    <p><strong>+ </strong><span class="subArtist">State of Mind</span></p>
+</template>
+
+<template id="attendeeTemplate">
+    <p class="attendee">Jane Foster</p>
+</template>
+
+<template id="songTemplate">
+    <div class="song col">
+        <p><i class="fa-solid fa-music"></i> <span class="songTitle subHeading">Solar System</span></p>
+        <p class="artistName">Sub Focus</p>
+    </div>
+</template>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-xl">
+            <a class="navbar-brand" href="#">ShowShare</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Pricing</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Dropdown link
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row row-cols-1 justify-content-center g-4 mt-1" id="posts">
+
+        </div>
+    </div>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/68dcb33269.js" crossorigin="anonymous"></script>
+<script>
+
+    const data = [
+        {
+            title: 'Big Wubs at Sub Focus!',
+            date: '07/03/2023',
+            venue: 'Shed 10 Auckland',
+            showType: 'DJ - Drum and Bass',
+            artistMain: 'Sub Focus',
+            subArtists: ['State of Mind', 'Flowidus'],
+            attendees: ['Jane Foster', 'Megan Fox', 'Matthew Perry'],
+            songs: [
+                {
+                    title: 'Solar System',
+                    artist: 'Sub Focus'
+                },
+                {
+                    title: 'Desire',
+                    artist: 'Sub Focus'
+                },
+                {
+                    title: 'Runaway Train',
+                    artist: 'State of Mind'
+                }
+            ],
+            imageSrc: 'https://www.georgefm.co.nz/home/good-chat/2022/10/sub-focus-raves-about-incredible-nz-cant-wait-to-bring-show-to-superreceptive-kiwi-fans-/_jcr_content/_cq_featuredimage.coreimg.jpeg/1665014122535/grg-subfocus-tmmrwland.jpeg',
+            description: 'Omg the show was so good! Sub Focus is my Fav and the other DJs were sick too'
+        },
+        {
+            title: 'Big Wubs at Sub Focus!',
+            date: '07/03/2023',
+            venue: 'Shed 10 Auckland',
+            showType: 'DJ - Drum and Bass',
+            artistMain: 'Sub Focus',
+            subArtists: ['State of Mind', 'Flowidus'],
+            attendees: ['Jane Foster', 'Megan Fox', 'Matthew Perry'],
+            songs: [
+                {
+                    title: 'Solar System',
+                    artist: 'Sub Focus'
+                },
+                {
+                    title: 'Desire',
+                    artist: 'Sub Focus'
+                },
+                {
+                    title: 'Runaway Train',
+                    artist: 'State of Mind'
+                }
+            ],
+            imageSrc: 'https://www.georgefm.co.nz/home/good-chat/2022/10/sub-focus-raves-about-incredible-nz-cant-wait-to-bring-show-to-superreceptive-kiwi-fans-/_jcr_content/_cq_featuredimage.coreimg.jpeg/1665014122535/grg-subfocus-tmmrwland.jpeg',
+            description: 'Omg the show was so good! Sub Focus is my Fav and the other DJs were sick too'
+        }
+    ]
+
+    data.forEach(post => {
+        const template = document.getElementById("postTemplate").content.cloneNode(true)
+        template.querySelector('#title').innerText = post.title
+        template.querySelector('#date').innerText = post.date
+        template.querySelector('#venue').innerText = post.venue
+        template.querySelector('#showType').innerText = post.showType
+        template.querySelector('#artistMain').innerText = post.artistMain
+
+        post.subArtists.forEach(artist => {
+            const subArtist = document.getElementById("subArtists").content.cloneNode(true)
+            subArtist.querySelector('.subArtist').innerText = artist
+            template.querySelector('.artists').appendChild(subArtist)
+        })
+
+        post.attendees.forEach(person => {
+            const attendee = document.getElementById("attendeeTemplate").content.cloneNode(true)
+            attendee.querySelector('.attendee').innerText = person
+            template.querySelector('.attendees').appendChild(attendee)
+        })
+
+        post.songs.forEach(song => {
+            const songListing = document.getElementById("songTemplate").content.cloneNode(true)
+            songListing.querySelector('.songTitle').innerText = song.title
+            songListing.querySelector('.artistName').innerText = song.artist
+            template.querySelector('#songs').appendChild(songListing)
+        })
+
+        template.querySelector('.gigImage').src = post.imageSrc
+        template.querySelector('#description').innerText = post.description
+
+        document.querySelector('#posts').appendChild(template)
+    })
+
+</script>
+
+</html>
