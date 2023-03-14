@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ShowShare</title>
+    <title>GigShare</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
@@ -12,37 +12,55 @@
 
 <template id="postTemplate">
     <div class="post col" id="postTemplate">
-        <div class="row row-cols-1 row-cols-lg-2 p-3">
-            <div class="col">
+        <div class="row p-4">
+            <div class="col-12 col-lg-5">
+
                 <h3 class="title" id="title"></h3>
-                <h6 class="subtitle"><span id="date"></span> - <span id="venue"></span></h6>
-                <h6 class="subtitle" id="showType"></h6>
+                <h6 class="subtitle noMargin"><span id="date"></span> - <span id="venue"></span></h6>
+                <h6 class="subtitle noMargin" id="showType"></h6>
 
                 <hr>
 
-                <div class="d-flex justify-content-between">
-
-                    <span class="artists">
-                        <p><i class="fa-solid fa-user"></i> <span id="artistMain" class="subHeading"></span>
+                <div class="row row-cols-2 g-3">
+                    <span class="artists col">
+                        <p><i class="fa-solid fa-microphone"></i> <span id="artistMain" class="subHeading"></span>
                         </p>
+
+                        <template id="subArtists">
+                            <p><strong>+ </strong><span class="subArtist"></span></p>
+                        </template>
+
                     </span>
 
-                    <span class="attendees">
-                    </span>
 
+                    <span class="attendees col">
+                        <P><i class="fa-solid fa-users"></i> <strong>Attended:</strong></P>
+
+                        <template id="attendeeTemplate">
+                            <p><span class="attendee"></span></p>
+                        </template>
+
+                    </span>
                 </div>
 
                 <hr>
 
-                <span class="topSongs row row-cols-2 g-3" id="songs">
-                    
+                <span class="topSongs row row-cols-2 g-3 pb-2" id="songs">
+
+                    <template id="songTemplate">
+                        <div class="song col">
+                            <p><i class="fa-solid fa-music"></i> <strong><span class="songTitle"></span></strong></p>
+                            <p class="artistName subtitle"></p>
+                        </div>
+                    </template>
+
                 </span>
+
             </div>
 
-            <div class="col">
-                <img class="gigImage"
-                    src=""
-                    alt="Gig Pic">
+            <div class="col-12 col-lg-7">
+                <img class="gigImage" src="" alt="Gig Pic">
+
                 <p class="mt-2" id="description"></p>
             </div>
 
@@ -50,57 +68,163 @@
     </div>
 </template>
 
-<template id="subArtists">
-    <p><strong>+ </strong><span class="subArtist">State of Mind</span></p>
-</template>
-
-<template id="attendeeTemplate">
-    <p class="attendee">Jane Foster</p>
-</template>
-
-<template id="songTemplate">
-    <div class="song col">
-        <p><i class="fa-solid fa-music"></i> <span class="songTitle subHeading">Solar System</span></p>
-        <p class="artistName">Sub Focus</p>
-    </div>
+<template id="loader">
+    <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
+      </div>
 </template>
 
 <body>
-
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <!-- NavBar -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
         <div class="container-xl">
-            <a class="navbar-brand" href="#">ShowShare</a>
+            <a class="navbar-brand" href="#">GigShare</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Features</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Dropdown link
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </li>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop">
+                        Create Post
+                    </button>
                 </ul>
             </div>
         </div>
     </nav>
 
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Enter your Gig details:</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <!-- Modal Form-->
+                    <div class="row g-3" id="newPostForm">
+                        <div class="form-floating col-12">
+                            <input type="text" class="form-control" id="newTitle" placeholder="Title">
+                            <label for="newTitle">Title</label>
+                        </div>
+                        <div class="form-floating col-12 col-sm-6">
+                            <input type="date" class="form-control" id="newDate" placeholder="Date">
+                            <label for="newDate">Date</label>
+                        </div>
+                        <div class="form-floating col-12 col-sm-6">
+                            <input type="text" class="form-control" id="newVenue" placeholder="Venue">
+                            <label for="newVenue">Venue</label>
+                        </div>
+                        <div class="form-floating col-12">
+                            <input type="text" class="form-control" id="newGigType" placeholder="Gig Type">
+                            <label for="newGigType">Gig Type</label>
+                        </div>
+                        <div class="form-floating col-12">
+                            <input type="text" class="form-control" id="newMainArtist" placeholder="Headline Act">
+                            <label for="newMainArtist">Headline Act</label>
+                        </div>
+                        <div class="form-floating col-12 col-sm-6" id="supAct1">
+                            <input type="text" class="form-control" id="newSupportingAct1" placeholder="Supporting Act"
+                                onkeyup="revealInput('supAct2', 'newSupportingAct1')">
+                            <label for="newSupportingAct1">Supporting Act</label>
+                        </div>
+                        <div class="form-floating col-12 col-sm-6 hideInput t-input" id="supAct2">
+                            <input type="text" class="form-control" id="newSupportingAct2" placeholder="Supporting Act"
+                                onkeyup="revealInput('supAct3', 'newSupportingAct2')">
+                            <label for="newSupportingAct2">Supporting Act</label>
+                        </div>
+                        <div class="form-floating col-12 col-sm-6 hideInput t-input" id="supAct3">
+                            <input type="text" class="form-control" id="newSupportingAct3" placeholder="Supporting Act"
+                                onkeyup="revealInput('supAct4', 'newSupportingAct3')">
+                            <label for="newSupportingAct3">Supporting Act</label>
+                        </div>
+                        <div class="form-floating col-12 col-sm-6 hideInput t-input" id="supAct4">
+                            <input type="text" class="form-control" id="newSupportingAct4" placeholder="Supporting Act">
+                            <label for="newSupportingAct4">Supporting Act</label>
+                        </div>
+                        <div class="form-floating col-12">
+                            <input type="text" class="form-control" id="newAttendee1" placeholder="Attendee"
+                                onkeyup="revealInput('attd2', 'newAttendee1')">
+                            <label for="newAttendee1">Attendee (You)</label>
+                        </div>
+                        <div class="form-floating col-12 col-sm-6 hideInput t-input" id="attd2">
+                            <input type="text" class="form-control" id="newAttendee2" placeholder="Attendee"
+                                onkeyup="revealInput('attd3', 'newAttendee2')">
+                            <label for="newAttendee2">Attendee</label>
+                        </div>
+                        <div class="form-floating col-12 col-sm-6 hideInput t-input" id="attd3">
+                            <input type="text" class="form-control" id="newAttendee3" placeholder="Attendee"
+                                onkeyup="revealInput('attd4', 'newAttendee3')">
+                            <label for="newAttendee3">Attendee</label>
+                        </div>
+                        <div class="form-floating col-12 col-sm-6 hideInput t-input" id="attd4">
+                            <input type="text" class="form-control" id="newAttendee4" placeholder="Attendee"
+                                onkeyup="revealInput('attd5', 'newAttendee4')">
+                            <label for="newAttendee4">Attendee</label>
+                        </div>
+                        <div class="form-floating col-12 col-sm-6 hideInput t-input" id="attd5">
+                            <input type="text" class="form-control" id="newAttendee5" placeholder="Attendee">
+                            <label for="newAttendee5">Attendee</label>
+                        </div>
+                        <div class="form-floating col-12 col-sm-6 track1">
+                            <input type="text" class="form-control" id="newTrackName1" placeholder="Track Name"
+                                onkeyup="revealSong('.track2', 'newTrackName1')">
+                            <label for="newTrackName1">Track Name</label>
+                        </div>
+                        <div class="form-floating col-12 col-sm-6 track1">
+                            <input type="text" class="form-control" id="newArtist1" placeholder="Artist">
+                            <label for="newArtist1">Artist</label>
+                        </div>
+                        <div class="form-floating col-12 col-sm-6 track2 t-input hideInput">
+                            <input type="text" class="form-control" id="newTrackName2" placeholder="Track Name"
+                                onkeyup="revealSong('.track3', 'newTrackName2')">
+                            <label for="newTrackName2">Track Name</label>
+                        </div>
+                        <div class="form-floating col-12 col-sm-6 track2 t-input hideInput">
+                            <input type="text" class="form-control" id="newArtist2" placeholder="Artist">
+                            <label for="newArtist2">Artist</label>
+                        </div>
+                        <div class="form-floating col-12 col-sm-6 track3 t-input hideInput">
+                            <input type="text" class="form-control" id="newTrackName3" placeholder="Track Name"
+                                onkeyup="revealSong('.track4', 'newTrackName3')">
+                            <label for="newTrackName3">Track Name</label>
+                        </div>
+                        <div class="form-floating col-12 col-sm-6 track3 t-input hideInput">
+                            <input type="text" class="form-control" id="newArtist3" placeholder="Artist">
+                            <label for="newArtist3">Artist</label>
+                        </div>
+                        <div class="form-floating col-12 col-sm-6 track4 t-input hideInput">
+                            <input type="text" class="form-control" id="newTrackName4" placeholder="Track Name">
+                            <label for="newTrackName4">Track Name</label>
+                        </div>
+                        <div class="form-floating col-12 col-sm-6 track4 t-input hideInput">
+                            <input type="text" class="form-control" id="newArtist4" placeholder="Artist">
+                            <label for="newArtist4">Artist</label>
+                        </div>
+                        <div class="form-floating col-12">
+                            <input type="text" class="form-control" id="newImgSrc" placeholder="Image Source">
+                            <label for="newIgmSrc">Image Source</label>
+                        </div>
+                        <div class="form-floating col-12">
+                            <textarea class="form-control" placeholder="Description" id="newDescription"
+                                style="height: 100px"></textarea>
+                            <label for="newDescription">Description</label>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button id="liveToastBtn" type="button" class="btn btn-primary" onclick="createPost()">Create
+                        Post</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Post Container-->
     <div class="container">
         <div class="row row-cols-1 justify-content-center g-4 mt-1" id="posts">
 
@@ -108,98 +232,172 @@
     </div>
 
 </body>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
     crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/68dcb33269.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="utils.js"></script>
 <script>
 
-    const data = [
-        {
-            title: 'Big Wubs at Sub Focus!',
-            date: '07/03/2023',
-            venue: 'Shed 10 Auckland',
-            showType: 'DJ - Drum and Bass',
-            artistMain: 'Sub Focus',
-            subArtists: ['State of Mind', 'Flowidus'],
-            attendees: ['Jane Foster', 'Megan Fox', 'Matthew Perry'],
-            songs: [
-                {
-                    title: 'Solar System',
-                    artist: 'Sub Focus'
-                },
-                {
-                    title: 'Desire',
-                    artist: 'Sub Focus'
-                },
-                {
-                    title: 'Runaway Train',
-                    artist: 'State of Mind'
-                }
-            ],
-            imageSrc: 'https://www.georgefm.co.nz/home/good-chat/2022/10/sub-focus-raves-about-incredible-nz-cant-wait-to-bring-show-to-superreceptive-kiwi-fans-/_jcr_content/_cq_featuredimage.coreimg.jpeg/1665014122535/grg-subfocus-tmmrwland.jpeg',
-            description: 'Omg the show was so good! Sub Focus is my Fav and the other DJs were sick too'
-        },
-        {
-            title: 'Big Wubs at Sub Focus!',
-            date: '07/03/2023',
-            venue: 'Shed 10 Auckland',
-            showType: 'DJ - Drum and Bass',
-            artistMain: 'Sub Focus',
-            subArtists: ['State of Mind', 'Flowidus'],
-            attendees: ['Jane Foster', 'Megan Fox', 'Matthew Perry'],
-            songs: [
-                {
-                    title: 'Solar System',
-                    artist: 'Sub Focus'
-                },
-                {
-                    title: 'Desire',
-                    artist: 'Sub Focus'
-                },
-                {
-                    title: 'Runaway Train',
-                    artist: 'State of Mind'
-                }
-            ],
-            imageSrc: 'https://www.georgefm.co.nz/home/good-chat/2022/10/sub-focus-raves-about-incredible-nz-cant-wait-to-bring-show-to-superreceptive-kiwi-fans-/_jcr_content/_cq_featuredimage.coreimg.jpeg/1665014122535/grg-subfocus-tmmrwland.jpeg',
-            description: 'Omg the show was so good! Sub Focus is my Fav and the other DJs were sick too'
+    let postData = []
+
+    function revealInput(nextId, valueId) {
+        let value = getValue(valueId)
+        document.getElementById(nextId).classList.toggle('hideInput', value === '')
+    }
+
+    function revealSong(nextClass, songValueId) {
+        let value = getValue(songValueId)
+        let inputs = document.querySelectorAll(nextClass)
+        console.log(inputs)
+        inputs.forEach(input => input.classList.toggle('hideInput', value === ''))
+    }
+
+    function renderPosts(posts) {
+        document.querySelector('#posts').innerHTML = ''
+        let sortedDatePosts = posts.sort((a, b) => new Date(a.date) - new Date(b.date))
+        sortedDatePosts.reverse().forEach(post => {
+            const template = document.getElementById("postTemplate").content.cloneNode(true)
+            template.changeText('#title', post.title)
+            template.changeText('#date', post.date.split('-').reverse().join('/'))
+            template.changeText('#venue', post.venue)
+            template.changeText('#showType', post.showType)
+            template.changeText('#artistMain', post.artistMain)
+
+            post.subArtists.forEach(artist => {
+                const subArtist = template.getElementById("subArtists").content.cloneNode(true)
+                subArtist.changeText('.subArtist', artist)
+                template.querySelector('.artists').appendChild(subArtist)
+            })
+
+            post.attendees.forEach(person => {
+                const attendee = template.getElementById("attendeeTemplate").content.cloneNode(true)
+                attendee.changeText('.attendee', person)
+                template.querySelector('.attendees').appendChild(attendee)
+            })
+
+            post.songs.forEach(song => {
+                const songListing = template.getElementById("songTemplate").content.cloneNode(true)
+                songListing.changeText('.songTitle', song.title)
+                songListing.changeText('.artistName', song.artist)
+                template.querySelector('#songs').appendChild(songListing)
+            })
+
+            template.querySelector('.gigImage').src = post.imageSrc
+            template.changeText('#description', post.description)
+
+            document.querySelector('#posts').appendChild(template)
+        })
+    }
+
+    function createPost() {
+
+        let newPost = {
+            id: '',
+            title: '',
+            date: '',
+            venue: '',
+            showType: '',
+            artistMain: '',
+            subArtists: [],
+            attendees: [],
+            songs: [],
+            imageSrc: '',
+            description: ''
         }
-    ]
 
-    data.forEach(post => {
-        const template = document.getElementById("postTemplate").content.cloneNode(true)
-        template.querySelector('#title').innerText = post.title
-        template.querySelector('#date').innerText = post.date
-        template.querySelector('#venue').innerText = post.venue
-        template.querySelector('#showType').innerText = post.showType
-        template.querySelector('#artistMain').innerText = post.artistMain
+        newPost.id = postData.length + 1
+        newPost.title = getValue('newTitle')
+        newPost.date = getValue('newDate')
+        newPost.venue = getValue('newVenue')
+        newPost.showType = getValue('newGigType')
+        newPost.artistMain = getValue('newMainArtist')
 
-        post.subArtists.forEach(artist => {
-            const subArtist = document.getElementById("subArtists").content.cloneNode(true)
-            subArtist.querySelector('.subArtist').innerText = artist
-            template.querySelector('.artists').appendChild(subArtist)
+        let subArtistsRaw = [getValue('newSupportingAct1'),
+        getValue('newSupportingAct2'),
+        getValue('newSupportingAct3'),
+        getValue('newSupportingAct4'),]
+
+        let subArtists = subArtistsRaw.filter(artist => artist !== '')
+        newPost.subArtists = subArtists
+
+        let attendeesRaw = [getValue('newAttendee1'),
+        getValue('newAttendee2'),
+        getValue('newAttendee3'),
+        getValue('newAttendee4'),
+        getValue('newAttendee5')]
+
+        let attendees = attendeesRaw.filter(attendee => attendee !== '')
+        newPost.attendees = attendees
+
+        let songsRaw = [
+            {
+                title: getValue('newTrackName1'),
+                artist: getValue('newArtist1')
+            },
+            {
+                title: getValue('newTrackName2'),
+                artist: getValue('newArtist2')
+            },
+            {
+                title: getValue('newTrackName3'),
+                artist: getValue('newArtist3')
+            },
+            {
+                title: getValue('newTrackName4'),
+                artist: getValue('newArtist4')
+            },
+        ]
+
+        songsRaw.forEach(song => {
+            if (song.title !== '') newPost.songs.push(song)
         })
 
-        post.attendees.forEach(person => {
-            const attendee = document.getElementById("attendeeTemplate").content.cloneNode(true)
-            attendee.querySelector('.attendee').innerText = person
-            template.querySelector('.attendees').appendChild(attendee)
-        })
+        newPost.imageSrc = getValue('newImgSrc')
+        newPost.description = getValue('newDescription')
 
-        post.songs.forEach(song => {
-            const songListing = document.getElementById("songTemplate").content.cloneNode(true)
-            songListing.querySelector('.songTitle').innerText = song.title
-            songListing.querySelector('.artistName').innerText = song.artist
-            template.querySelector('#songs').appendChild(songListing)
-        })
+        axios.post('http://localhost:3000/posts', newPost)
+            .then(response => console.log(response.data))
+            .catch(err => console.error(err))
 
-        template.querySelector('.gigImage').src = post.imageSrc
-        template.querySelector('#description').innerText = post.description
+    }
 
-        document.querySelector('#posts').appendChild(template)
-    })
+    let isInViewport = function (element) {
+        let distance = element.getBoundingClientRect();
+        return (distance.top + 100 <= window.innerHeight)
+    };
 
+    function debounce(func, ms) {
+        let timeoutId
+        return () => {
+            clearTimeout(timeoutId)
+            timeoutId = setTimeout(func, ms)
+        }
+    }
+
+    function showPosts() {
+        let findPosts = document.querySelectorAll('.post');
+        findPosts.forEach(element => {
+            if (isInViewport(element)) {
+                element.classList.add("showPost");
+            }
+        });
+    }
+
+    showPosts = debounce(showPosts, 5)
+    window.addEventListener('scroll', showPosts);
+
+    function fetchPosts() {
+        document.querySelector('#posts').appendChild(document.getElementById('loader').content)
+        axios.get('http://localhost:3000/posts')
+            .then(response => postData = response.data)
+            .then(() => { renderPosts(postData); showPosts() })
+            .catch(err => console.error(err))
+    }
+
+    fetchPosts()
 </script>
 
 </html>
