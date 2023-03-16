@@ -70,7 +70,7 @@
 
 <template id="loader">
     <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
-      </div>
+    </div>
 </template>
 
 <body>
@@ -105,119 +105,122 @@
                 <div class="modal-body">
 
                     <!-- Modal Form-->
-                    <div class="row g-3" id="newPostForm">
-                        <div class="form-floating col-12">
-                            <input type="text" class="form-control" id="newTitle" placeholder="Title">
-                            <label for="newTitle">Title</label>
+                    <form id="newPost">
+                        <div class="row g-3">
+                            <div class="form-floating col-12">
+                                <input type="text" class="form-control" id="newTitle" placeholder="Title">
+                                <label for="newTitle">Title</label>
+                            </div>
+                            <div class="form-floating col-12 col-sm-6">
+                                <input type="date" class="form-control" id="newDate" placeholder="Date">
+                                <label for="newDate">Date</label>
+                            </div>
+                            <div class="form-floating col-12 col-sm-6">
+                                <input type="text" class="form-control" id="newVenue" placeholder="Venue">
+                                <label for="newVenue">Venue</label>
+                            </div>
+                            <div class="form-floating col-12">
+                                <input type="text" class="form-control" id="newGigType" placeholder="Gig Type">
+                                <label for="newGigType">Gig Type</label>
+                            </div>
+                            <div class="form-floating col-12">
+                                <input type="text" class="form-control" id="newMainArtist" placeholder="Headline Act">
+                                <label for="newMainArtist">Headline Act</label>
+                            </div>
+                            <div class="form-floating col-12 col-sm-6" id="supAct1">
+                                <input type="text" class="form-control" id="newSupportingAct1"
+                                    placeholder="Supporting Act" onkeyup="revealInput('supAct2', 'newSupportingAct1')">
+                                <label for="newSupportingAct1">Supporting Act</label>
+                            </div>
+                            <div class="form-floating col-12 col-sm-6 hideInput t-input" id="supAct2">
+                                <input type="text" class="form-control" id="newSupportingAct2"
+                                    placeholder="Supporting Act" onkeyup="revealInput('supAct3', 'newSupportingAct2')">
+                                <label for="newSupportingAct2">Supporting Act</label>
+                            </div>
+                            <div class="form-floating col-12 col-sm-6 hideInput t-input" id="supAct3">
+                                <input type="text" class="form-control" id="newSupportingAct3"
+                                    placeholder="Supporting Act" onkeyup="revealInput('supAct4', 'newSupportingAct3')">
+                                <label for="newSupportingAct3">Supporting Act</label>
+                            </div>
+                            <div class="form-floating col-12 col-sm-6 hideInput t-input" id="supAct4">
+                                <input type="text" class="form-control" id="newSupportingAct4"
+                                    placeholder="Supporting Act">
+                                <label for="newSupportingAct4">Supporting Act</label>
+                            </div>
+                            <div class="form-floating col-12">
+                                <input type="text" class="form-control" id="newAttendee1" placeholder="Attendee"
+                                    onkeyup="revealInput('attd2', 'newAttendee1')">
+                                <label for="newAttendee1">Attendee (You)</label>
+                            </div>
+                            <div class="form-floating col-12 col-sm-6 hideInput t-input" id="attd2">
+                                <input type="text" class="form-control" id="newAttendee2" placeholder="Attendee"
+                                    onkeyup="revealInput('attd3', 'newAttendee2')">
+                                <label for="newAttendee2">Attendee</label>
+                            </div>
+                            <div class="form-floating col-12 col-sm-6 hideInput t-input" id="attd3">
+                                <input type="text" class="form-control" id="newAttendee3" placeholder="Attendee"
+                                    onkeyup="revealInput('attd4', 'newAttendee3')">
+                                <label for="newAttendee3">Attendee</label>
+                            </div>
+                            <div class="form-floating col-12 col-sm-6 hideInput t-input" id="attd4">
+                                <input type="text" class="form-control" id="newAttendee4" placeholder="Attendee"
+                                    onkeyup="revealInput('attd5', 'newAttendee4')">
+                                <label for="newAttendee4">Attendee</label>
+                            </div>
+                            <div class="form-floating col-12 col-sm-6 hideInput t-input" id="attd5">
+                                <input type="text" class="form-control" id="newAttendee5" placeholder="Attendee">
+                                <label for="newAttendee5">Attendee</label>
+                            </div>
+                            <div class="form-floating col-12 col-sm-6 track1">
+                                <input type="text" class="form-control" id="newTrackName1" placeholder="Track Name"
+                                    onkeyup="revealSong('.track2', 'newTrackName1')">
+                                <label for="newTrackName1">Track Name</label>
+                            </div>
+                            <div class="form-floating col-12 col-sm-6 track1">
+                                <input type="text" class="form-control" id="newArtist1" placeholder="Artist">
+                                <label for="newArtist1">Artist</label>
+                            </div>
+                            <div class="form-floating col-12 col-sm-6 track2 t-input hideInput">
+                                <input type="text" class="form-control" id="newTrackName2" placeholder="Track Name"
+                                    onkeyup="revealSong('.track3', 'newTrackName2')">
+                                <label for="newTrackName2">Track Name</label>
+                            </div>
+                            <div class="form-floating col-12 col-sm-6 track2 t-input hideInput">
+                                <input type="text" class="form-control" id="newArtist2" placeholder="Artist">
+                                <label for="newArtist2">Artist</label>
+                            </div>
+                            <div class="form-floating col-12 col-sm-6 track3 t-input hideInput">
+                                <input type="text" class="form-control" id="newTrackName3" placeholder="Track Name"
+                                    onkeyup="revealSong('.track4', 'newTrackName3')">
+                                <label for="newTrackName3">Track Name</label>
+                            </div>
+                            <div class="form-floating col-12 col-sm-6 track3 t-input hideInput">
+                                <input type="text" class="form-control" id="newArtist3" placeholder="Artist">
+                                <label for="newArtist3">Artist</label>
+                            </div>
+                            <div class="form-floating col-12 col-sm-6 track4 t-input hideInput">
+                                <input type="text" class="form-control" id="newTrackName4" placeholder="Track Name">
+                                <label for="newTrackName4">Track Name</label>
+                            </div>
+                            <div class="form-floating col-12 col-sm-6 track4 t-input hideInput">
+                                <input type="text" class="form-control" id="newArtist4" placeholder="Artist">
+                                <label for="newArtist4">Artist</label>
+                            </div>
+                            <div class="form-floating col-12">
+                                <input type="text" class="form-control" id="newImgSrc" placeholder="Image Source">
+                                <label for="newIgmSrc">Image Source</label>
+                            </div>
+                            <div class="form-floating col-12">
+                                <textarea class="form-control" placeholder="Description" id="newDescription"
+                                    style="height: 100px"></textarea>
+                                <label for="newDescription">Description</label>
+                            </div>
                         </div>
-                        <div class="form-floating col-12 col-sm-6">
-                            <input type="date" class="form-control" id="newDate" placeholder="Date">
-                            <label for="newDate">Date</label>
-                        </div>
-                        <div class="form-floating col-12 col-sm-6">
-                            <input type="text" class="form-control" id="newVenue" placeholder="Venue">
-                            <label for="newVenue">Venue</label>
-                        </div>
-                        <div class="form-floating col-12">
-                            <input type="text" class="form-control" id="newGigType" placeholder="Gig Type">
-                            <label for="newGigType">Gig Type</label>
-                        </div>
-                        <div class="form-floating col-12">
-                            <input type="text" class="form-control" id="newMainArtist" placeholder="Headline Act">
-                            <label for="newMainArtist">Headline Act</label>
-                        </div>
-                        <div class="form-floating col-12 col-sm-6" id="supAct1">
-                            <input type="text" class="form-control" id="newSupportingAct1" placeholder="Supporting Act"
-                                onkeyup="revealInput('supAct2', 'newSupportingAct1')">
-                            <label for="newSupportingAct1">Supporting Act</label>
-                        </div>
-                        <div class="form-floating col-12 col-sm-6 hideInput t-input" id="supAct2">
-                            <input type="text" class="form-control" id="newSupportingAct2" placeholder="Supporting Act"
-                                onkeyup="revealInput('supAct3', 'newSupportingAct2')">
-                            <label for="newSupportingAct2">Supporting Act</label>
-                        </div>
-                        <div class="form-floating col-12 col-sm-6 hideInput t-input" id="supAct3">
-                            <input type="text" class="form-control" id="newSupportingAct3" placeholder="Supporting Act"
-                                onkeyup="revealInput('supAct4', 'newSupportingAct3')">
-                            <label for="newSupportingAct3">Supporting Act</label>
-                        </div>
-                        <div class="form-floating col-12 col-sm-6 hideInput t-input" id="supAct4">
-                            <input type="text" class="form-control" id="newSupportingAct4" placeholder="Supporting Act">
-                            <label for="newSupportingAct4">Supporting Act</label>
-                        </div>
-                        <div class="form-floating col-12">
-                            <input type="text" class="form-control" id="newAttendee1" placeholder="Attendee"
-                                onkeyup="revealInput('attd2', 'newAttendee1')">
-                            <label for="newAttendee1">Attendee (You)</label>
-                        </div>
-                        <div class="form-floating col-12 col-sm-6 hideInput t-input" id="attd2">
-                            <input type="text" class="form-control" id="newAttendee2" placeholder="Attendee"
-                                onkeyup="revealInput('attd3', 'newAttendee2')">
-                            <label for="newAttendee2">Attendee</label>
-                        </div>
-                        <div class="form-floating col-12 col-sm-6 hideInput t-input" id="attd3">
-                            <input type="text" class="form-control" id="newAttendee3" placeholder="Attendee"
-                                onkeyup="revealInput('attd4', 'newAttendee3')">
-                            <label for="newAttendee3">Attendee</label>
-                        </div>
-                        <div class="form-floating col-12 col-sm-6 hideInput t-input" id="attd4">
-                            <input type="text" class="form-control" id="newAttendee4" placeholder="Attendee"
-                                onkeyup="revealInput('attd5', 'newAttendee4')">
-                            <label for="newAttendee4">Attendee</label>
-                        </div>
-                        <div class="form-floating col-12 col-sm-6 hideInput t-input" id="attd5">
-                            <input type="text" class="form-control" id="newAttendee5" placeholder="Attendee">
-                            <label for="newAttendee5">Attendee</label>
-                        </div>
-                        <div class="form-floating col-12 col-sm-6 track1">
-                            <input type="text" class="form-control" id="newTrackName1" placeholder="Track Name"
-                                onkeyup="revealSong('.track2', 'newTrackName1')">
-                            <label for="newTrackName1">Track Name</label>
-                        </div>
-                        <div class="form-floating col-12 col-sm-6 track1">
-                            <input type="text" class="form-control" id="newArtist1" placeholder="Artist">
-                            <label for="newArtist1">Artist</label>
-                        </div>
-                        <div class="form-floating col-12 col-sm-6 track2 t-input hideInput">
-                            <input type="text" class="form-control" id="newTrackName2" placeholder="Track Name"
-                                onkeyup="revealSong('.track3', 'newTrackName2')">
-                            <label for="newTrackName2">Track Name</label>
-                        </div>
-                        <div class="form-floating col-12 col-sm-6 track2 t-input hideInput">
-                            <input type="text" class="form-control" id="newArtist2" placeholder="Artist">
-                            <label for="newArtist2">Artist</label>
-                        </div>
-                        <div class="form-floating col-12 col-sm-6 track3 t-input hideInput">
-                            <input type="text" class="form-control" id="newTrackName3" placeholder="Track Name"
-                                onkeyup="revealSong('.track4', 'newTrackName3')">
-                            <label for="newTrackName3">Track Name</label>
-                        </div>
-                        <div class="form-floating col-12 col-sm-6 track3 t-input hideInput">
-                            <input type="text" class="form-control" id="newArtist3" placeholder="Artist">
-                            <label for="newArtist3">Artist</label>
-                        </div>
-                        <div class="form-floating col-12 col-sm-6 track4 t-input hideInput">
-                            <input type="text" class="form-control" id="newTrackName4" placeholder="Track Name">
-                            <label for="newTrackName4">Track Name</label>
-                        </div>
-                        <div class="form-floating col-12 col-sm-6 track4 t-input hideInput">
-                            <input type="text" class="form-control" id="newArtist4" placeholder="Artist">
-                            <label for="newArtist4">Artist</label>
-                        </div>
-                        <div class="form-floating col-12">
-                            <input type="text" class="form-control" id="newImgSrc" placeholder="Image Source">
-                            <label for="newIgmSrc">Image Source</label>
-                        </div>
-                        <div class="form-floating col-12">
-                            <textarea class="form-control" placeholder="Description" id="newDescription"
-                                style="height: 100px"></textarea>
-                            <label for="newDescription">Description</label>
-                        </div>
-                    </div>
-
+                    </form>
                 </div>
                 <div class="modal-footer">
-                    <button id="liveToastBtn" type="button" class="btn btn-primary" onclick="createPost()">Create
+                    <button class="btn btn-primary" type="reset" data-bs-dismiss="modal" form="newPost"
+                        onclick="createPost(); postConfirmToast()">Create
                         Post</button>
                 </div>
             </div>
@@ -228,6 +231,19 @@
     <div class="container">
         <div class="row row-cols-1 justify-content-center g-4 mt-1" id="posts">
 
+        </div>
+    </div>
+
+    <!-- Toast Container-->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <strong class="me-auto">GigShare</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                Your post has been created!
+            </div>
         </div>
     </div>
 
@@ -242,6 +258,8 @@
 <script>
 
     let postData = []
+
+    const postConfirmToast = () => new bootstrap.Toast(document.getElementById('liveToast')).show()
 
     function revealInput(nextId, valueId) {
         let value = getValue(valueId)
@@ -363,9 +381,8 @@
         newPost.description = getValue('newDescription')
 
         axios.post('http://localhost:3000/posts', newPost)
-            .then(response => console.log(response.data))
+            .then(response => { console.log(response.data); fetchPosts() })
             .catch(err => console.error(err))
-
     }
 
     let isInViewport = function (element) {
