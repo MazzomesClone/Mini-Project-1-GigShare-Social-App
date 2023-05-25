@@ -1,0 +1,288 @@
+[
+  {
+    "id": 1,
+    "title": "I Found a Chemical Romance",
+    "date": "2023-03-11",
+    "venue": "Western Springs Auckland",
+    "showType": "Band - Rock",
+    "artistMain": "My Chemical Romance",
+    "subArtists": [
+      "Lips",
+      "Miss June",
+      "Goodnight Nurse"
+    ],
+    "attendees": [
+      "Estelle Cass",
+      "Carleton Lesley"
+    ],
+    "songs": [
+      {
+        "title": "Na Na Na",
+        "artist": "My Chemical Romance"
+      },
+      {
+        "title": "Welcome to the Black Parade",
+        "artist": "My Chemical Romance"
+      },
+      {
+        "title": "Thank you for the Venom",
+        "artist": "My Chemical Romance"
+      },
+      {
+        "title": "Helena",
+        "artist": "My Chemical Romance"
+      }
+    ],
+    "imageSrc": "https://resources.stuff.co.nz/content/dam/images/4/z/3/s/e/1/image.related.StuffLandscapeSixteenByNine.1240x700.4z3s5h.png/1678576880128.jpg?format=pjpg&optimize=medium",
+    "description": "My Chemical Romance have still got it! All the anthems and more"
+  },
+  {
+    "id": 2,
+    "title": "Big Wubs at Sub Focus!",
+    "date": "2023-03-07",
+    "venue": "Shed 10 Auckland",
+    "showType": "DJ - Drum and Bass",
+    "artistMain": "Sub Focus",
+    "subArtists": [
+      "State of Mind",
+      "Flowidus"
+    ],
+    "attendees": [
+      "Danny Blake",
+      "Tracey Young",
+      "Doug Benson",
+      "Travis Benson"
+    ],
+    "songs": [
+      {
+        "title": "Solar System",
+        "artist": "Sub Focus"
+      },
+      {
+        "title": "Desire",
+        "artist": "Sub Focus"
+      },
+      {
+        "title": "Runaway Train",
+        "artist": "State of Mind"
+      }
+    ],
+    "imageSrc": "https://www.georgefm.co.nz/home/good-chat/2022/10/sub-focus-raves-about-incredible-nz-cant-wait-to-bring-show-to-superreceptive-kiwi-fans-/_jcr_content/_cq_featuredimage.coreimg.jpeg/1665014122535/grg-subfocus-tmmrwland.jpeg",
+    "description": "Omg the show was so good! Sub Focus is my Fav and the other DJs were sick too"
+  },
+  {
+    "id": 3,
+    "title": "Sheeran the Love",
+    "date": "2023-02-10",
+    "venue": "Eden Park Auckland",
+    "showType": "Performer - Pop",
+    "artistMain": "Ed Sheeran",
+    "subArtists": [
+      "Maisie Peters"
+    ],
+    "attendees": [
+      "John Paul",
+      "Dorothy Caden",
+      "Kiara Miriam"
+    ],
+    "songs": [
+      {
+        "title": "A Team",
+        "artist": "Ed Sheeran"
+      },
+      {
+        "title": "Don't",
+        "artist": "Ed Sheeran"
+      }
+    ],
+    "imageSrc": "https://i0.wp.com/www.ambientlightblog.com/wp-content/uploads/2023/02/EdSheeran_20230210_TWITTER.jpg?fit=2048%2C1024&ssl=1",
+    "description": "What a vibe thanks to Ed! From the old stuff to the new stuff, Ed proves his megastar status once again."
+  },
+  {
+    "id": 4,
+    "title": "Super Vibes at Subsonic",
+    "date": "2023-03-03",
+    "venue": "Pointers Auckland",
+    "showType": "DJ - Drum and Bass",
+    "artistMain": "Subsonic",
+    "subArtists": [],
+    "attendees": [
+      "John Smith",
+      "Adam Smith",
+      "Harry Peters"
+    ],
+    "songs": [
+      {
+        "title": "Last Time",
+        "artist": "Subsonic"
+      },
+      {
+        "title": "Come Around",
+        "artist": "Subsonic"
+      }
+    ],
+    "imageSrc": "https://www.muzic.net.nz/images/galleries/4774_116517.jpg",
+    "description": "Nothing sub-par about this show, spectacular DnB rollers from start to finish"
+  },
+  {
+    "id": 5,
+    "title": "Never Out of Style",
+    "date": "2023-03-07",
+    "venue": "Mt Smart Stadium Auckland",
+    "showType": "Performer - Pop",
+    "artistMain": "Harry Styles",
+    "subArtists": [
+      "Wet Leg"
+    ],
+    "attendees": [
+      "Samara Alton",
+      "Carlisle Jeanne",
+      "Jonny Ryan",
+      "Cory Corbin"
+    ],
+    "songs": [
+      {
+        "title": "Watermelon Sugar",
+        "artist": "Harry Styles"
+      },
+      {
+        "title": "Music for a Sushi Restaurant",
+        "artist": "Harry Styles"
+      },
+      {
+        "title": "Chaise Longue",
+        "artist": "Wet Leg"
+      }
+    ],
+    "imageSrc": "https://resources.stuff.co.nz/content/dam/images/4/z/3/o/p/e/image.related.StuffLandscapeSixteenByNine.710x400.4z3pfj.png/1678211594789.jpg?format=pjpg&optimize=medium",
+    "description": "Harry Styles I'm so glad you went your own (one) direction! All you make are bangers"
+  },
+  {
+    "id": 6,
+    "title": "Snoop Doggy Dogg",
+    "date": "2023-03-11",
+    "venue": "Trusts Arena Auckland",
+    "showType": "Rapper - Hip Hop",
+    "artistMain": "Snoop Dogg",
+    "subArtists": [
+      "Tom Francis"
+    ],
+    "attendees": [
+      "Bowen Darcie",
+      "Kassy Walter"
+    ],
+    "songs": [
+      {
+        "title": "California Love",
+        "artist": "Snoop Dogg"
+      },
+      {
+        "title": "Upside Ya Head",
+        "artist": "Snoop Dogg"
+      },
+      {
+        "title": "Gin and Juice",
+        "artist": "Snoop Dogg"
+      }
+    ],
+    "imageSrc": "https://resources.stuff.co.nz/content/dam/images/4/z/3/s/d/i/image.related.StuffLandscapeSixteenByNine.710x400.4z3s8m.png/1678531718016.jpg?format=pjpg&optimize=medium",
+    "description": "One, two, three and two the four, Snoop Doggy Dogg knocks at Auckland City's door"
+  },
+  {
+    "id": 7,
+    "title": "Dua Lipa double fun!",
+    "date": "2022-11-03",
+    "venue": "Spark Arena Auckland",
+    "showType": "Singer - Pop",
+    "artistMain": "Dua Lipa",
+    "subArtists": [],
+    "attendees": [
+      "Jeri Roland",
+      "Ansley Araminta",
+      "Benj Ripley",
+      "Nena Detta"
+    ],
+    "songs": [
+      {
+        "title": "Physical",
+        "artist": "Dua Lipa"
+      },
+      {
+        "title": "New Rules",
+        "artist": "Dua Lipa"
+      }
+    ],
+    "imageSrc": "https://www.nzherald.co.nz/resizer/y53nFF-VX7Ff-1rfW_Wao5ZE8B8=/1440x960/smart/filters:quality(70)/cloudfront-ap-southeast-2.images.arcpublishing.com/nzme/BHFNGWCZ2ZB4VO2O7XI4F2B7I4.jpg",
+    "description": "Dua Lipa brought the songs live, and the meme dance lol"
+  },
+  {
+    "id": 8,
+    "title": "Solar Power!",
+    "date": "2023-02-22",
+    "venue": "TSB Arena Wellington",
+    "showType": "Singer - Pop",
+    "artistMain": "Lorde",
+    "subArtists": [
+      "Riiki Reid",
+      "Fazerdaze"
+    ],
+    "attendees": [
+      "Everitt Giffard",
+      "Wrenley Delicia",
+      "Carter Lindy",
+      "Tria Annika"
+    ],
+    "songs": [
+      {
+        "title": "Royals",
+        "artist": "Lorde"
+      },
+      {
+        "title": "Leader of a New Regime",
+        "artist": "Lorde"
+      }
+    ],
+    "imageSrc": "https://www.nzherald.co.nz/resizer/Zlzj8iUa3GA99fjFxs8JMsqwJ_I=/1440x810/smart/filters:quality(70)/cloudfront-ap-southeast-2.images.arcpublishing.com/nzme/SBEYRZA32ZCC5G76VYTBB4EJ5I.jpg",
+    "description": "She truly is the lord and Lorde of NZ Pop! What a night!"
+  },
+  {
+    "id": 9,
+    "title": "Quarter Century Celebration!",
+    "date": "2023-03-11",
+    "venue": "La Zeppa Auckland",
+    "showType": "DJ - House Music",
+    "artistMain": "Madison Barker",
+    "subArtists": [
+      "Spotify Playlist",
+      "DJ Khaled",
+      "DJ Snake"
+    ],
+    "attendees": [
+      "Luke Barker",
+      "Marco Wells",
+      "Leon Ripa",
+      "Tyler Dye",
+      "Adam Murley"
+    ],
+    "songs": [
+      {
+        "title": "I Can Boogie",
+        "artist": "Moon Boots"
+      },
+      {
+        "title": "Make Me Believe",
+        "artist": "Diplo"
+      },
+      {
+        "title": "Tellin' U",
+        "artist": "Sidibe"
+      },
+      {
+        "title": "Equilibrium",
+        "artist": "Darius"
+      }
+    ],
+    "imageSrc": "https://cdn.discordapp.com/attachments/1074445649438851094/1084752850720141403/25bday.jpg",
+    "description": "Great bday celebration with great friends!!!!"
+  }
+]
