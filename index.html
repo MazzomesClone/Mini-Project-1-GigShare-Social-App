@@ -380,6 +380,10 @@
         newPost.imageSrc = getValue('newImgSrc')
         newPost.description = getValue('newDescription')
 
+        // For Demo Mode
+        return alert('Posting is disabled in demo mode')
+        //
+        //
         axios.post('http://localhost:3000/posts', newPost)
             .then(response => { console.log(response.data); fetchPosts() })
             .catch(err => console.error(err))
@@ -413,6 +417,13 @@
     function fetchPosts() {
         clearPosts()
         document.querySelector('#posts').appendChild(document.getElementById('loader').content)
+        // For Demo Mode
+        return axios.get('./public/db.json')
+            .then(response => postData = response.data)
+            .then(() => { renderPosts(postData); showPosts() })
+            .catch(err => console.error(err))
+        //
+        //
         axios.get('http://localhost:3000/posts')
             .then(response => postData = response.data)
             .then(() => { renderPosts(postData); showPosts() })
