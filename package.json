@@ -3,7 +3,6 @@
     "json-server": "^0.17.2"
   },
   "scripts": {
-    "build": "npm serve ",
     "server": "json-server --watch db.json"
   }
 }
